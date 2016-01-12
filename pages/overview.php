@@ -13,30 +13,30 @@
         </tr>
         <tr>
           <td style="padding: 3px 5px">Today and yesterday</td>
-          <td style="padding: 3px 5px;"><?php echo ES_List_User_Searches_Database::get_count_search_queries( 'last_day' ); ?></td>
+          <td style="padding: 3px 5px;"><?php echo ES_List_User_Searches_Overview::get_count_search_queries( 'last_day' ); ?></td>
         </tr>
         <tr>
           <td style="padding: 3px 5px">Last 7 days</td>
-          <td style="padding: 3px 5px;"><?php echo ES_List_User_Searches_Database::get_count_search_queries( 'last_7days' ); ?></td>
+          <td style="padding: 3px 5px;"><?php echo ES_List_User_Searches_Overview::get_count_search_queries( 'last_7days' ); ?></td>
         </tr>
         <tr>
           <td style="padding: 3px 5px">Last 30 days</td>
-          <td style="padding: 3px 5px;"><?php echo ES_List_User_Searches_Database::get_count_search_queries( 'last_30days' ); ?></td>
+          <td style="padding: 3px 5px;"><?php echo ES_List_User_Searches_Overview::get_count_search_queries( 'last_30days' ); ?></td>
         </tr>
         <tr>
           <td style="padding: 3px 5px">Forever</td>
-          <td style="padding: 3px 5px;"><?php echo ES_List_User_Searches_Database::get_count_search_queries(); ?></td>
+          <td style="padding: 3px 5px;"><?php echo ES_List_User_Searches_Overview::get_count_search_queries(); ?></td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <?php if ( ES_List_User_Searches_Database::common_query_counter() > 0 ) : ?>
+  <?php if ( ES_List_User_Searches_Overview::common_query_counter() > 0 ) : ?>
   <div style="clear: both"></div>
   <h3>Common Queries</h3>
   <p>Here you can see the 20 most common user search queries, how many times those queries were made and how many results were found for those queries.</p>
 
-    <?php $results = ES_List_User_Searches_Database::get_searched_query_data( 'last_day' ); ?>
+    <?php $results = ES_List_User_Searches_Overview::get_searched_query_data( 'last_day' ); ?>
     <?php if ($results) : ?>
     <div style="width: 30%; float: left; margin-right: 2%">
       <table class="widefat">
@@ -59,7 +59,7 @@
     </div>
     <?php endif; ?>
 
-    <?php $results = ES_List_User_Searches_Database::get_searched_query_data( 'last_7days' ); ?>
+    <?php $results = ES_List_User_Searches_Overview::get_searched_query_data( 'last_7days' ); ?>
     <?php if ($results) : ?>
     <div style="width: 30%; float: left; margin-right: 2%">
       <table class="widefat">
@@ -82,7 +82,7 @@
     </div>
     <?php endif; ?>
 
-    <?php $results = ES_List_User_Searches_Database::get_searched_query_data( 'last_30days' ); ?>
+    <?php $results = ES_List_User_Searches_Overview::get_searched_query_data( 'last_30days' ); ?>
     <?php if ($results) : ?>
     <div style="width: 30%; float: left; margin-right: 2%">
       <table class="widefat">
@@ -106,11 +106,11 @@
     <?php endif; ?>
   <?php endif; ?>
 
-  <?php if ( ES_List_User_Searches_Database::unsuccessful_query_counter() > 0 ) : ?>
+  <?php if ( ES_List_User_Searches_Overview::unsuccessful_query_counter() > 0 ) : ?>
     <div style="clear: both"></div>
     <h3>Unsuccessful Queries</h3>
 
-    <?php $results = ES_List_User_Searches_Database::get_searched_query_data( 'last_day', false ); ?>
+    <?php $results = ES_List_User_Searches_Overview::get_searched_query_data( 'last_day', false ); ?>
     <?php if ($results) : ?>
     <div style="width: 30%; float: left; margin-right: 2%">
       <table class="widefat">
@@ -133,7 +133,7 @@
     </div>
     <?php endif; ?>
 
-    <?php $results = ES_List_User_Searches_Database::get_searched_query_data( 'last_7days', false ); ?>
+    <?php $results = ES_List_User_Searches_Overview::get_searched_query_data( 'last_7days', false ); ?>
     <?php if ($results) : ?>
     <div style="width: 30%; float: left; margin-right: 2%">
       <table class="widefat">
@@ -156,7 +156,7 @@
     </div>
     <?php endif; ?>
 
-    <?php $results = ES_List_User_Searches_Database::get_searched_query_data( 'last_30days', false ); ?>
+    <?php $results = ES_List_User_Searches_Overview::get_searched_query_data( 'last_30days', false ); ?>
     <?php if ($results) : ?>
     <div style="width: 30%; float: left; margin-right: 2%">
       <table class="widefat">

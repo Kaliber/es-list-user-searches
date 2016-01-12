@@ -31,8 +31,9 @@ if ( !defined( 'ABSPATH' ) ) exit;
 add_action( 'plugins_loaded', array( 'ES_LIST_USER_SEARCHES', 'get_instance' ) );
 
 require_once plugin_dir_path( __FILE__ ) . 'menu.php';
-require_once plugin_dir_path( __FILE__ ) . 'inc/Setup.php';
 require_once plugin_dir_path( __FILE__ ) . 'inc/Database.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/Overview.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/Setup.php';
 
 register_activation_hook( __FILE__, array( 'ES_List_User_Searches_Setup', 'on_activation' ) );
 register_uninstall_hook( __FILE__, array( 'ES_List_User_Searches_Setup', 'on_uninstall' ) );
