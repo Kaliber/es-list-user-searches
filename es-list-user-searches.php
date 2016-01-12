@@ -1,7 +1,7 @@
 <?php
 /**
 * Plugin Name: ElasticSearch List User Searches
-* Description: List User Searches in Wordpress back-end, from ElasticSearch queries.
+* Description: List ElasticSearch User Searches in Wordpress back-end
 * Plugin URI: http://#
 * Author: Davey Kropf
 * Author URI: https://dkropf.nl
@@ -26,32 +26,30 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( !defined( 'ABSPATH' ) ) exit;
 
-add_action( 'plugins_loaded', array( 'ES_LIST_USER_SEARCHES', 'get_instance' ) );
+require_once plugin_dir_path( __FILE__ ) . 'inc/Setup.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/Database.php';
+
 register_activation_hook( __FILE__, array( 'Setup', 'on_activation' ) );
 register_uninstall_hook( __FILE__, array( 'Setup', 'on_uninstall' ) );
+
+add_action( 'plugins_loaded', array( 'ES_LIST_USER_SEARCHES', 'get_instance' ) );
 
 class ES_LIST_USER_SEARCHES {
 
   private static $instance = null;
 
   public static function get_instance() {
-    if ( ! isset( self::$instance ) )
+    if ( !isset( self::$instance ) ) {
       self::$instance = new self;
+    }
 
     return self::$instance;
   }
 
-  public function __construct()
-  {
-    add_action( current_filter(), array( $this, 'load_files' ), 30 );
-  }
-
-  public function load_files()
-  {
-    foreach ( glob( plugin_dir_path( __FILE__ ).'inc/*.php' ) as $file )
-      include_once $file;
+  public function save_search($search_query, $search_url, $total_hits) {
+    Database::save_search($search_query, $search_url, $total_hits);
   }
 
 }
