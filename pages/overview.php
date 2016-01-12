@@ -1,6 +1,6 @@
 <?php
   if ( ! empty( $_POST ) && check_admin_referer( 'es-reset-logs', '_esnonce' ) ) {
-    if ( isset( $_POST['es_reset_input'] ) && strtolower($_POST['es_reset_input']) === 'reset') {
+    if ( isset( $_POST['es_reset_input'] ) && strtolower( $_POST['es_reset_input'] ) === 'reset' ) {
       ES_List_User_Searches_Database::clear_table();
     }
   }
