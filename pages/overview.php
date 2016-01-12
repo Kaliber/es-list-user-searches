@@ -1,3 +1,11 @@
+<?php
+  if ( ! empty( $_POST ) && check_admin_referer( 'es-reset-logs', '_esnonce' ) ) {
+    if ( isset( $_POST['es_reset_input'] ) && strtolower($_POST['es_reset_input']) === 'reset') {
+      ES_List_User_Searches_Database::clear_table();
+    }
+  }
+?>
+
 <div class="wrap">
   <h2>ES User Searches</h2>
 
@@ -45,7 +53,7 @@
         </thead>
         <tbody>
           <tr>
-            <th>Query</th><th>#</th><th>Hits</th>
+            <th width="80%">Query</th><th width="10%">#</th><th width="10%">Hits</th>
           </tr>
           <?php foreach ($results as $result) { ?>
             <tr>
@@ -68,7 +76,7 @@
         </thead>
         <tbody>
           <tr>
-            <th>Query</th><th>#</th><th>Hits</th>
+            <th width="80%">Query</th><th width="10%">#</th><th width="10%">Hits</th>
           </tr>
           <?php foreach ($results as $result) { ?>
             <tr>
@@ -91,7 +99,7 @@
         </thead>
         <tbody>
           <tr>
-            <th>Query</th><th>#</th><th>Hits</th>
+            <th width="80%">Query</th><th width="10%">#</th><th width="10%">Hits</th>
           </tr>
           <?php foreach ($results as $result) { ?>
             <tr>
@@ -119,7 +127,7 @@
         </thead>
         <tbody>
           <tr>
-            <th>Query</th><th>#</th><th>Hits</th>
+            <th width="80%">Query</th><th width="10%">#</th><th width="10%">Hits</th>
           </tr>
           <?php foreach ($results as $result) { ?>
             <tr>
@@ -142,7 +150,7 @@
         </thead>
         <tbody>
           <tr>
-            <th>Query</th><th>#</th><th>Hits</th>
+            <th width="80%">Query</th><th width="10%">#</th><th width="10%">Hits</th>
           </tr>
           <?php foreach ($results as $result) { ?>
             <tr>
@@ -165,7 +173,7 @@
         </thead>
         <tbody>
           <tr>
-            <th>Query</th><th>#</th><th>Hits</th>
+            <th width="80%">Query</th><th width="10%">#</th><th width="10%">Hits</th>
           </tr>
           <?php foreach ($results as $result) { ?>
             <tr>
@@ -180,4 +188,15 @@
     <?php endif; ?>
   <?php endif; ?>
 
+  <div style="clear: both"></div>
+  <h3>Reset Logs</h3>
+  <form method="post">
+    <?php wp_nonce_field( 'es-reset-logs', '_esnonce' ); ?>
+    <p>
+      To reset the logs, type "reset" into the box here
+      <input type="text" name="es_reset_input">
+      and click
+      <input type="submit" name="es_reset_submit" value="Reset" class="button">
+    </p>
+  </form>
 </div>

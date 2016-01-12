@@ -77,12 +77,12 @@ class ES_List_User_Searches_Database {
     $table_name = self::get_table_name();
     return $wpdb->get_results( 
       "
-      SELECT ID, query, hits, url, count(query) as count
-      FROM $table_name
-      WHERE $where_condition
-      GROUP BY query
-      ORDER BY count DESC
-      LIMIT 0, 20
+        SELECT ID, query, hits, url, count(query) as count
+        FROM $table_name
+        WHERE $where_condition
+        GROUP BY query
+        ORDER BY count DESC
+        LIMIT 0, 20
       "
     );
   }
