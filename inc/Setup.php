@@ -1,7 +1,7 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) exit;
 
-class Setup {
+class ES_List_User_Searches_Setup {
 
   public static function on_activation() {
     if ( !current_user_can( 'activate_plugins' ) ) {
@@ -10,7 +10,7 @@ class Setup {
     $plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
     check_admin_referer( "activate-plugin_{$plugin}" );
 
-    Database::install_database();
+    ES_List_User_Searches_Database::install_database();
   }
 
   public static function on_uninstall() {
@@ -22,7 +22,7 @@ class Setup {
     if ( __FILE__ != WP_UNINSTALL_PLUGIN )
       return;
 
-    Database::clear_table();
+    ES_List_User_Searches_Database::clear_table();
   }
 
 }

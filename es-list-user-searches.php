@@ -28,15 +28,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 if ( !defined( 'ABSPATH' ) ) exit;
 
+add_action( 'plugins_loaded', array( 'ES_LIST_USER_SEARCHES', 'get_instance' ) );
+
+require_once plugin_dir_path( __FILE__ ) . 'menu.php';
 require_once plugin_dir_path( __FILE__ ) . 'inc/Setup.php';
 require_once plugin_dir_path( __FILE__ ) . 'inc/Database.php';
 
-register_activation_hook( __FILE__, array( 'Setup', 'on_activation' ) );
-register_uninstall_hook( __FILE__, array( 'Setup', 'on_uninstall' ) );
+register_activation_hook( __FILE__, array( 'ES_List_User_Searches_Setup', 'on_activation' ) );
+register_uninstall_hook( __FILE__, array( 'ES_List_User_Searches_Setup', 'on_uninstall' ) );
 
-add_action( 'plugins_loaded', array( 'ES_LIST_USER_SEARCHES', 'get_instance' ) );
-
-class ES_LIST_USER_SEARCHES {
+class ES_List_User_Searches {
 
   private static $instance = null;
 
@@ -48,8 +49,8 @@ class ES_LIST_USER_SEARCHES {
     return self::$instance;
   }
 
-  public function save_search($search_query, $search_url, $total_hits) {
-    Database::save_search($search_query, $search_url, $total_hits);
+  public function save_search($search_query, $total_hits, $search_url = '') {
+    ES_List_User_Searches_Database::save_search($search_query, $total_hits, $search_url);
   }
 
 }
