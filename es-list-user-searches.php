@@ -5,7 +5,7 @@
 * Plugin URI: http://#
 * Author: Davey Kropf
 * Author URI: https://dkropf.nl
-* Version: 1.0
+* Version: 1.0.1
 * License: GPL2
 */
 

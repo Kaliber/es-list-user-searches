@@ -80,7 +80,7 @@ class ES_List_User_Searches_Database {
         SELECT ID, query, hits, url, count(query) as count
         FROM $table_name
         WHERE $where_condition
-        GROUP BY query
+        GROUP BY query, hits
         ORDER BY count DESC
         LIMIT 0, 20
       "
