@@ -2,7 +2,7 @@
 /**
 * Plugin Name: ElasticSearch List User Searches
 * Description: List ElasticSearch User Searches in Wordpress back-end
-* Plugin URI: http://#
+* Plugin URI: https://github.com/daveykropf/es-list-user-searches
 * Author: Davey Kropf
 * Author URI: https://dkropf.nl
 * Version: 1.0.1
