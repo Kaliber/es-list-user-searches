@@ -50,7 +50,7 @@ class ES_List_User_Searches {
     return self::$instance;
   }
 
-  public function save_search($search_query, $total_hits, $search_url = '') {
+  public static function save_search($search_query, $total_hits, $search_url = '') {
     ES_List_User_Searches_Database::save_search($search_query, $total_hits, $search_url);
   }
 

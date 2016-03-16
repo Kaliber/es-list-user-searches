@@ -8,7 +8,7 @@ You need to call the plugin to save the searched query in the database. For exam
 
 ```php
   // Check if the plugin exists / is enabled
-  if ( class_exists( ES_List_User_Searches ) ) {
+  if ( class_exists( 'ES_List_User_Searches' ) ) {
     // Send searched query results
     ES_List_User_Searches::save_search( $searched_query, $total_hits, $site_url );
   }
