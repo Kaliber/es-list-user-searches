@@ -43,7 +43,7 @@ class ES_List_User_Searches_Database {
       $search_query = substr( $search_query, 0, 200 );
     }
 
-    if ( strlen( $search_url ) > 200 ) {
+    if ( strlen( $search_url ) > 255 ) {
       $search_url = substr( $search_url, 0, 255 );
     }
 
