@@ -5,7 +5,7 @@
 * Plugin URI: https://github.com/daveykropf/es-list-user-searches
 * Author: Davey Kropf
 * Author URI: https://dkropf.nl
-* Version: 1.0.2
+* Version: 1.0.3
 * License: GPL2
 */
 
